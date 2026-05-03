@@ -1,11 +1,12 @@
 const express = require('express');
 const authController = require('../controllers/authController');
 const usuarioController = require('../controllers/usuarioController');
-// const reagenteController = require('../controllers/reagenteController');
-// const movimentacaoController = require('../controllers/movimentacaoController');
 const authMiddleware = require('../middlewares/authMiddleware');
 const reagenteController = require('../controllers/reagenteController');
 const router = express.Router();
+const movimentacaoController = require('../controllers/movimentacaoController');
+
+
 
 // Auth (público)
 router.post('/registrar', authController.registrar);
@@ -25,6 +26,10 @@ router.post('/reagentes', authMiddleware, reagenteController.criar);
 router.put('/reagentes/:id', authMiddleware, reagenteController.atualizar);
 router.delete('/reagentes/:id', authMiddleware, reagenteController.deletar);
 // router.get('/reagentes', authMiddleware, reagenteController.listar);
+router.get('/movimentacoes', authMiddleware, movimentacaoController.listar);
+router.get('/movimentacoes/:id', authMiddleware, movimentacaoController.buscarPorId);
+router.post('/movimentacoes', authMiddleware, movimentacaoController.criar);
+
 // ...
 
 module.exports = router;
