@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Movimentações - Reagente</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="general">
+<nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="usuarios.html">Usuários</a>
+    <a href="reagentes.html">Reagentes</a>
+    <a href="movimentacoes.html">Movimentações</a>
+    <a href="categorias.html">Categorias</a>
+    <a href="#" id="logout">Sair</a>
+</nav>
+
+<main>
+    <h1>Movimentações de Estoque</h1>
+    <form id="movimentacaoForm">
+        <select id="reagenteId" required>
+            <option value="">Selecione o reagente</option>
+        </select>
+        <select id="tipo" required>
+            <option value="entrada">Entrada</option>
+            <option value="saida">Saída</option>
+        </select>
+        <input type="number" id="quantidade" placeholder="Quantidade" required>
+        <input type="text" id="responsavel" placeholder="Responsável" required>
+        <button type="submit">Registrar Movimentação</button>
+    </form>
+
+    <table id="movimentacoesTable">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Reagente</th>
+            <th>Tipo</th>
+            <th>Qtd</th>
+            <th>Responsável</th>
+            <th>Data</th>
+            <th>Usuário</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/movimentacoes.js"></script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Usuários - Reagente</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="general">
+<nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="usuarios.html">Usuários</a>
+    <a href="reagentes.html">Reagentes</a>
+    <a href="movimentacoes.html">Movimentações</a>
+    <a href="categorias.html">Categorias</a>
+    <a href="#" id="logout">Sair</a>
+</nav>
+
+<main>
+    <h1>Usuários</h1>
+    <form id="usuarioForm">
+        <input type="hidden" id="usuarioId">
+        <input type="text" id="nome" placeholder="Nome" required>
+        <input type="email" id="email" placeholder="E-mail" required>
+        <input type="password" id="senha" placeholder="Senha (apenas para criação)">
+        <select id="papel">
+            <option value="operador">Operador</option>
+            <option value="admin">Admin</option>
+        </select>
+        <button type="submit">Salvar</button>
+        <button type="button" onclick="cancelar()">Cancelar</button>
+    </form>
+    <table id="usuariosTable">
+        <thead>
+        <tr><th>ID</th><th>Nome</th><th>Email</th><th>Papel</th><th>Ações</th></tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/usuarios.js"></script>
+</body>
+</html>

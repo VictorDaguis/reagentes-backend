@@ -5,11 +5,16 @@ require('dotenv').config();
 const routes = require('./routes/routes');
 const { sequelize } = require('./models');
 
-const app = express();
+const app = express(); // <-- app criado aqui
 
+// Middlewares
 app.use(cors());
 app.use(express.json());
 
+// Servir arquivos estáticos da pasta 'public' (se quiser, veja observação abaixo)
+app.use(express.static('public'));
+
+// Rotas da API
 app.use('/api', routes);
 
 // Sincroniza banco e inicia servidor

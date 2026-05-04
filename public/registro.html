@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reagente - Cadastro</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="login-page">
+<div class="login-container">
+    <h1>Reagente</h1>
+    <form id="registroForm">
+        <div class="input-group">
+            <label for="nome">Nome</label>
+            <input type="text" id="nome" placeholder="Seu nome" required>
+        </div>
+        <div class="input-group">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" placeholder="Seu e-mail" required>
+        </div>
+        <div class="input-group">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" placeholder="Crie uma senha" required>
+        </div>
+        <button type="submit">CADASTRAR</button>
+    </form>
+    <p id="erroRegistro" class="error"></p>
+    <p class="register-link">Já tem conta? <a href="index.html">Faça login</a></p>
+</div>
+<script src="js/api.js"></script>
+<script>
+    document.getElementById('registroForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const nome = document.getElementById('nome').value;
+      const email = document.getElementById('email').value;
+      const senha = document.getElementById('senha').value;
+      try {
+        const res = await fetch(`${API_URL}/registrar`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ nome, email, senha })
+        });
+        const data = await res.json();
+        if (data.id) {
+          window.location.href = 'index.html';
+        } else {
+          document.getElementById('erroRegistro').textContent = data.erro || 'Erro no cadastro';
+        }
+      } catch (err) {
+        document.getElementById('erroRegistro').textContent = 'Erro de conexão';
+      }
+    });
+</script>
+</body>
+</html>

@@ -17,6 +17,9 @@ router.get('/usuarios', authMiddleware, usuarioController.listar);
 router.get('/usuarios/:id', authMiddleware, usuarioController.buscarPorId);
 router.put('/usuarios/:id', authMiddleware, usuarioController.atualizar);
 router.delete('/usuarios/:id', authMiddleware, usuarioController.deletar);
+router.get('/', (req, res) => {
+  res.json({ mensagem: 'API Laborsolo - Controle de Estoque de Reagentes' });
+});
 
 // Reagentes (protegido) – a implementar
 router.get('/reagentes', authMiddleware, reagenteController.listar);

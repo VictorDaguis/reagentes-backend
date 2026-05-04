@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Reagentes - Reagente</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="general">
+<nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="usuarios.html">Usuários</a>
+    <a href="reagentes.html">Reagentes</a>
+    <a href="movimentacoes.html">Movimentações</a>
+    <a href="categorias.html">Categorias</a>
+    <a href="#" id="logout">Sair</a>
+</nav>
+
+<main>
+    <h1>Reagentes</h1>
+    <form id="reagenteForm">
+        <input type="hidden" id="reagenteId">
+        <input type="text" id="nome" placeholder="Nome do reagente" required>
+        <select id="categoriaId" required>
+            <option value="">Selecione uma categoria</option>
+        </select>
+        <input type="text" id="unidade" placeholder="Unidade (ex: ml, g, un)" required>
+        <input type="number" id="quantidade" placeholder="Quantidade em estoque" required>
+        <input type="number" id="estoque_minimo" placeholder="Estoque mínimo" required>
+        <button type="submit">Salvar</button>
+        <button type="button" onclick="cancelar()">Cancelar</button>
+    </form>
+
+    <table id="reagentesTable">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Categoria</th>
+            <th>Unidade</th>
+            <th>Qtd</th>
+            <th>Est. Mín.</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/reagentes.js"></script>
+</body>
+</html>

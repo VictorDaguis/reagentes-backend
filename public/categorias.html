@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Categorias - Reagente</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="general">
+<nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="usuarios.html">Usuários</a>
+    <a href="reagentes.html">Reagentes</a>
+    <a href="movimentacoes.html">Movimentações</a>
+    <a href="categorias.html">Categorias</a>
+    <a href="#" id="logout">Sair</a>
+</nav>
+
+<main>
+    <h1>Categorias</h1>
+    <form id="categoriaForm">
+        <input type="hidden" id="categoriaId">
+        <input type="text" id="nome" placeholder="Nome da categoria" required>
+        <button type="submit">Salvar</button>
+        <button type="button" onclick="cancelar()">Cancelar</button>
+    </form>
+
+    <table id="categoriasTable">
+        <thead>
+        <tr><th>ID</th><th>Nome</th><th>Ações</th></tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</main>
+
+<script src="js/api.js"></script>
+<script src="js/categorias.js"></script>
+</body>
+</html>
